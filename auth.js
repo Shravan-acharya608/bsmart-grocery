@@ -55,9 +55,7 @@ password
 
 alert("Login Successful");
 
-window.location =
-"index.html";
-
+window.location = "home.html";
 }
 catch(error){
 
