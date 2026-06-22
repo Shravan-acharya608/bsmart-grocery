@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Track Order</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+🛒 Bsmart Grocery
+</div>
+
+</header>
+
+<div class="customer-form">
+
+<h2>Track Your Order</h2>
+
+<input
+type="text"
+id="orderId"
+placeholder="Enter Order ID">
+
+<button onclick="trackOrder()">
+Track Order
+</button>
+
+<div id="result"></div>
+
+</div>
+
+<script type="module">
+
+import { db } from "./firebase.js";
+
+import {
+collection,
+query,
+where,
+getDocs
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+window.trackOrder = async ()=>{
+
+const orderId =
+document.getElementById("orderId").value;
+
+const q =
+query(
+collection(db,"orders"),
+where("orderId","==",orderId)
+);
+
+const snapshot =
+await getDocs(q);
+
+const result =
+document.getElementById("result");
+
+if(snapshot.empty){
+
+result.innerHTML =
+"<h3>Order Not Found</h3>";
+
+return;
+
+}
+
+snapshot.forEach((doc)=>{
+
+const data = doc.data();
+
+result.innerHTML = `
+
+<h2>
+Order ID:
+${data.orderId}
+</h2>
+
+<h3>
+Status:
+${data.status}
+</h3>
+
+`;
+
+});
+
+}
+
+</script>
+
+</body>
+</html>
