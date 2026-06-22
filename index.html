@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Bsmart Grocery</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Bsmart Grocery</h1>
+
+<input id="name" placeholder="Customer Name">
+
+<input id="phone" placeholder="Phone Number">
+
+<h2>Items</h2>
+
+<div>
+Rice
+<input type="number" id="rice" value="0" min="0">
+</div>
+
+<div>
+Milk
+<input type="number" id="milk" value="0" min="0">
+</div>
+
+<div>
+Sugar
+<input type="number" id="sugar" value="0" min="0">
+</div>
+
+<div>
+Oil
+<input type="number" id="oil" value="0" min="0">
+</div>
+
+<button onclick="placeOrder()">
+Place Order
+</button>
+
+<script type="module" src="customer.js"></script>
+
+</body>
+</html>
