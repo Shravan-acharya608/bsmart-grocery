@@ -9,7 +9,7 @@ from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 const firebaseConfig = {
 
-apiKey: "YOUR_API_KEY",
+apiKey: "AIzaSyCsr3FWkcayhv2f_UgtHmsyFytaYP7uvic",
 
 authDomain:
 "bsmart-589e7.firebaseapp.com",
