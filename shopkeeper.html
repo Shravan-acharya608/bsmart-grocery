@@ -1,16 +1,50 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Shopkeeper Dashboard</title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bsmart Admin Dashboard</title>
+
 <link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
 
-<h1>Orders Dashboard</h1>
+<div class="admin-header">
+
+<div>
+<h1>🛒 Bsmart Admin</h1>
+<p>Manage Orders Efficiently</p>
+</div>
+
+<div class="admin-stats">
+
+<div class="stat-box">
+<h3 id="totalOrders">0</h3>
+<p>Total Orders</p>
+</div>
+
+<div class="stat-box">
+<h3 id="pendingOrders">0</h3>
+<p>Pending</p>
+</div>
+
+</div>
+
+</div>
+
+<div class="orders-title">
+<h2>📦 Incoming Orders</h2>
+</div>
 
 <div id="orders"></div>
 
 <script type="module" src="shopkeeper.js"></script>
 
 </body>
+
 </html>
