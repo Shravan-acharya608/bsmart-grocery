@@ -2,44 +2,164 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Bsmart Grocery</title>
+
 <link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
 </head>
+
 <body>
 
-<h1>Bsmart Grocery</h1>
+<header>
 
-<input id="name" placeholder="Customer Name">
-
-<input id="phone" placeholder="Phone Number">
-
-<h2>Items</h2>
-
-<div>
-Rice
-<input type="number" id="rice" value="0" min="0">
+<div class="logo">
+🛒 Bsmart Grocery
 </div>
 
-<div>
-Milk
-<input type="number" id="milk" value="0" min="0">
+<div class="search-box">
+<input
+type="text"
+placeholder="Search groceries...">
 </div>
 
-<div>
-Sugar
-<input type="number" id="sugar" value="0" min="0">
+</header>
+
+<section class="hero">
+
+<h1>Fresh Groceries Delivered Fast</h1>
+
+<p>
+Order groceries and pick them up when ready.
+</p>
+
+</section>
+
+<section class="categories">
+
+<div class="category">
+🥦 Vegetables
 </div>
 
-<div>
-Oil
-<input type="number" id="oil" value="0" min="0">
+<div class="category">
+🍎 Fruits
 </div>
+
+<div class="category">
+🥛 Dairy
+</div>
+
+<div class="category">
+🍪 Snacks
+</div>
+
+<div class="category">
+🧴 Household
+</div>
+
+</section>
+
+<h2 class="section-title">
+Popular Products
+</h2>
+
+<section class="products">
+
+<div class="product-card">
+
+<img
+src="https://images.unsplash.com/photo-1550583724-b2692b85b150?w=500">
+
+<h3>Milk</h3>
+
+<p>₹30</p>
+
+<input
+type="number"
+id="milk"
+value="0"
+min="0">
+
+</div>
+
+<div class="product-card">
+
+<img
+src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=500">
+
+<h3>Rice</h3>
+
+<p>₹60/kg</p>
+
+<input
+type="number"
+id="rice"
+value="0"
+min="0">
+
+</div>
+
+<div class="product-card">
+
+<img
+src="https://images.unsplash.com/photo-1587735243615-c03f25aaff15?w=500">
+
+<h3>Sugar</h3>
+
+<p>₹45/kg</p>
+
+<input
+type="number"
+id="sugar"
+value="0"
+min="0">
+
+</div>
+
+<div class="product-card">
+
+<img
+src="https://images.unsplash.com/photo-1620706857370-e1b9770e8bb1?w=500">
+
+<h3>Oil</h3>
+
+<p>₹120/L</p>
+
+<input
+type="number"
+id="oil"
+value="0"
+min="0">
+
+</div>
+
+</section>
+
+<section class="customer-form">
+
+<h2>Place Order</h2>
+
+<input
+id="name"
+placeholder="Customer Name">
+
+<input
+id="phone"
+placeholder="Phone Number">
 
 <button onclick="placeOrder()">
 Place Order
 </button>
 
-<script type="module" src="customer.js"></script>
+</section>
+
+<script type="module"
+src="customer.js">
+</script>
 
 </body>
 </html>
