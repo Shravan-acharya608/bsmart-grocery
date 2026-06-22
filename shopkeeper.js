@@ -1,90 +1,90 @@
 import { db } from "./firebase.js";
 
 import {
-
 collection,
 onSnapshot,
 doc,
 updateDoc
-
 }
-
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const ordersDiv =
 document.getElementById("orders");
 
 onSnapshot(
-
 collection(db,"orders"),
-
 (snapshot)=>{
 
 ordersDiv.innerHTML="";
 
+let total = 0;
+let pending = 0;
+
 snapshot.forEach((order)=>{
 
-const data =
-order.data();
+total++;
+
+const data = order.data();
+
+if(data.status==="Pending"){
+pending++;
+}
 
 ordersDiv.innerHTML += `
 
-<div class="card">
+<div class="order-card">
 
-<h3>
-${data.name}
-</h3>
+<div class="order-top">
 
-<p>
-Order ID:
-${data.orderId}
-</p>
+<h3>${data.name}</h3>
 
-<p>
-Phone:
-${data.phone}
-</p>
-
-<p>
-Status:
+<span class="status-badge">
 ${data.status}
+</span>
+
+</div>
+
+<p>
+📞 ${data.phone}
 </p>
 
 <p>
-
-Rice:
-${data.order.Rice}
-
-<br>
-
-Milk:
-${data.order.Milk}
-
-<br>
-
-Sugar:
-${data.order.Sugar}
-
-<br>
-
-Oil:
-${data.order.Oil}
-
+🆔 ${data.orderId}
 </p>
+
+<hr>
+
+<p>
+🥛 Milk : ${data.order.Milk}
+</p>
+
+<p>
+🍚 Rice : ${data.order.Rice}
+</p>
+
+<p>
+🍬 Sugar : ${data.order.Sugar}
+</p>
+
+<p>
+🛢 Oil : ${data.order.Oil}
+</p>
+
+<div class="btn-group">
 
 <button
-onclick="prepareOrder(
-'${order.id}'
-)">
+class="prepare-btn"
+onclick="prepareOrder('${order.id}')">
 Preparing
 </button>
 
 <button
-onclick="readyOrder(
-'${order.id}'
-)">
+class="ready-btn"
+onclick="readyOrder('${order.id}')">
 Ready
 </button>
+
+</div>
 
 </div>
 
@@ -92,25 +92,25 @@ Ready
 
 });
 
-}
+document.getElementById(
+"totalOrders"
+).innerText = total;
 
+document.getElementById(
+"pendingOrders"
+).innerText = pending;
+
+}
 );
 
 window.prepareOrder =
 async(id)=>{
 
 await updateDoc(
-
-doc(
-db,
-"orders",
-id
-),
-
+doc(db,"orders",id),
 {
 status:"Preparing"
 }
-
 );
 
 };
@@ -119,17 +119,10 @@ window.readyOrder =
 async(id)=>{
 
 await updateDoc(
-
-doc(
-db,
-"orders",
-id
-),
-
+doc(db,"orders",id),
 {
 status:"Ready for Pickup"
 }
-
 );
 
 };
